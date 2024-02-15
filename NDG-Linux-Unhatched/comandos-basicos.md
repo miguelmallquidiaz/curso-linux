@@ -186,5 +186,113 @@ Si no pertenece a los 2 anteriores se aplicara el tercer permiso
 Sólo el usuario raíz o el usuario propietario del archivo puede cambiar los permisos de un archivo o directorio.
 
 ### método simbólico
-El método simbólico es útil para cambiar un conjunto de permisos a la misma vez
-Sintaxis: 
+El método simbólico es útil para cambiar un conjunto de permisos a la misma vez.
+
+Sintaxis: `chmod [<COJUNTO DE PERMISOS><ACCIÓN><PERMISOS>]... ARCHIVO`
+
+### Conjunto de permisos:
+
+|Símbolo|Significado|
+|:----|:----|
+|u|Usuario: El usuario propietario del archivo.|
+|g|Grupo: El grupo propietario del archivo.|
+|o|Otros: Cualquier otro que no sea el usuario propietario o un miembro del grupo propietario.|
+|a|Todos: Se refiere al usuario, grupo, y todos los demás.|
+
+### Acción
+
+|Símbolo|Significado|
+|:----|:----|
+|+|Añadir permiso, si es necesario|
+|=|Especificar el permiso exacto|
+|-|Eliminar el permiso, si es necesario|
+
+### Permisos
+
+|Símbolo|Significado|
+|:----|:----|
+|r|leer (read)|
+|w|escribir (write)|
+|x|ejecutar (execute)|
+
+### Archivo:
+Finalmente, añada un espacio y los nombres de ruta para los archivos a los que quiere asignar los permisos.
+
+`chmod [<CONJUNTO DE PERMISOS><ACCIÓN><PERMISOS>]... ARCHIVO`
+
+Ejemplo: 
+
+`sysadmin@localhost:~/Documents$ chmod u+x hello.sh`
+
+./hello.sh
+Esto indica que el “comando” debe ejecutarse desde el directorio actual.
+
+## Cambiar el propietario de un archivo
+
+chown se utiliza para cambiar el propietario de los archivos y directorios. requiere acceso administrativo
+
+`chown [OPCIONES] [PROPIETARIO] ARCHIVO`
+
+- El primer argumento, [PROPIETARIO], especifica qué usuario debe ser el nuevo propietario.
+- El segundo argumento, ARCHIVO, especifica el archivo al cual se está cambiando el propietario.
+
+Ejemplo: Se cambbio el propierta del archivo a root
+```
+sysadmin@localhost:~/Documents$ ls -l hello.sh                                  
+-rwxr--r-- 1 sysadmin sysadmin 647 Dec 20  2017 hello.sh                        
+sysadmin@localhost:~/Documents$ sudo chown root hello.sh                                                   
+sysadmin@localhost:~/Documents$ ls -l hello.sh                                  
+-rwxr--r-- 1 root sysadmin 647 Dec 20  2017 hello.sh 
+```
+
+## Visualización de archivos
+
+`cat` se utiliza para ver rapidamente el contenido de archivos pequeños
+- Solo muestra 5 lineas
+
+Sintaxis: `cat [OPCIONES] [ARCHIVO]`
+
+Para ver archivos largos `more` y `less`
+
+Estos comandos head y tail son utiles para ver los archivos de registro del sistema
+
+Para visualizar solamente las 10 primeras líneas del resultado anterior para el archivo alpha.txt, utilice el comando head
+`sysadmin@localhost:~/Documents$ head alpha.txt                          
+A is for Apple                                                        
+B is for Bear                                                         
+C is for Cat                                                        
+D is for Dog                                                         
+E is for Elephant                                                     
+F is for Flower                                                       
+G is for Grapes                                                        
+H is for Happy                                                        
+I is for Ink                                                          
+J is for Juice`
+
+Para visualizar las 10 ultimas líneas se utiliza tail:
+
+`sysadmin@localhost:~/Documents$ tail alpha.txt                          
+Q is for Quark                                                         
+R is for Rat                                                           
+S is for Sloth                                                        
+T is for Turnip                                                        
+U is for Up                                                            
+V is for Velvet                                                      
+W is for Walrus                                                        
+X is for Xenon                                                        
+Y is for Yellow                                                        
+Z is for Zebra`
+
+Se puede especificar la cantidad e lineas que quieres visualizar: 
+Sintaxis:
+- `head -n número_de_líneas archivo`
+- `tail -n número_de_líneas archivo`
+
+```
+sysadmin@localhost:~/Documents$ head -n 5 alpha.txt                    
+A is for Apple                                                         
+B is for Bear                                                          
+C is for Cat                                                           
+D is for Dog                                                           
+E is for Elephant
+```
