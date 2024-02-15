@@ -16,6 +16,33 @@ Ejemplo para argumento:
 ls Documents
 ```
 Ejemplo de opciones:
+
+`ls -l (proporciona información de los archivos)`
+
 ```
-ls -l
+sysadmin@localhost:~$ ls -l
+total 32
+drwx------ 2 sysadmin sysadmin 4096 Dec 20  2017 Desktop                        
+drwx------ 4 sysadmin sysadmin 4096 Dec 20  2017 Documents                      
+drwx------ 2 sysadmin sysadmin 4096 Dec 20  2017 Downloads                      
+drwx------ 2 sysadmin sysadmin 4096 Dec 20  2017 Music                          
+drwx------ 2 sysadmin sysadmin 4096 Dec 20  2017 Pictures                       
+drwx------ 2 sysadmin sysadmin 4096 Dec 20  2017 Public                         
+drwx------ 2 sysadmin sysadmin 4096 Dec 20  2017 Templates                      
+drwx------ 2 sysadmin sysadmin 4096 Dec 20  2017 Videos
 ```
+
+`ls -r (imprime en un orden alfabrtico inverso)`
+
+```
+sysadmin@localhost:~$ ls -r
+Videos  Templates  Public  Pictures  Music  Downloads  Documents  Desktop
+```
+
+```
+Se pueden utilizar combinaciones
+ls -l -r
+ls -rl
+ls -lr
+```
+
