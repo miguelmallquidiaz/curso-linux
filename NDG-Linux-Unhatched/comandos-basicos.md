@@ -148,3 +148,15 @@ drwxr-xr-x 2 root   root   4096 (Dec  7  2017) fsck
 ### Nombre del archivo: El campo final contiene el nombre del archivo o directorio.
 
 -rw-r--r-- 1 root   root  47816 Dec  7  2017 (bootstrap.log)
+
+## Acceso administrativo:
+
+Ingresas como usuario root proporciona acceso administrativo
+`su OPCIONES NOMBRE-DE-USUARIO`
+El comando `exit` te permite regresar al usuario normal
+
+El comando `sudo` sólo proporciona acceso administrativo para la ejecución del comando especificado, pero no te cambia de usuario
+Sintaxis: `sudo [Opciones] comando`
+
+## Permisos
+Es la interación que el usuario tiene con los archivos
