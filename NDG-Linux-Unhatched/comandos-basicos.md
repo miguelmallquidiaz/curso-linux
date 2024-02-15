@@ -45,4 +45,28 @@ ls -l -r
 ls -rl
 ls -lr
 ```
+## Directorio
+sintaxis pwd [opcion]
+`pwd (imprime el directorio de trabajo)`
+Estructura del sistema de archivos
+![directorio](https://github.com/miguelmallquidiaz/curso-linux/blob/main/NDG-Linux-Unhatched/directorio.png)
+
+## Cambio de directorio:
+sintaxis cd [opciones] [rutas]
+`cd (cambiar en el directorio)`
+## Rutas absolutas:
+Especificar la ruta exacta de un directorio
+```
+sysadmin@localhost:/$ cd /home/sysadmin  
+```
+## Rutas relativas:
+Comienza con el directoio actual sin el / al princio
+```
+sysadmin@localhost:/$ cd Documents  
+```
+
+## Atajos
+`cd .. (Retrocede un directorio)`
+`cd ~ (Regresa al directorio sysadmin)`
+
 
