@@ -111,7 +111,7 @@ drwxr-xr-x 2 root   root   4096 Apr 11  2014 upstart
 | c | archivo carácter | Usado para comunicaciones con el equipo (hardware). |
 
 ### Tipo de archivo
-
+El primer carácter de esta salida indica el tipo de archivo. Recuerde que si el primer carácter es un -, este es un archivo ordinario. Si el carácter fuera una d, se trataría de un directorio.
 (-) rw-r--r-- (Es un archivo normal)
 
 ### Permisos: 
@@ -159,4 +159,32 @@ El comando `sudo` sólo proporciona acceso administrativo para la ejecución del
 Sintaxis: `sudo [Opciones] comando`
 
 ## Permisos
-Es la interación que el usuario tiene con los archivos
+Son los permisos que el usuario tiene con los archivos o directorios
+
+| Permiso | Archivos | Directorios |
+|---|---|---|
+| leer (read) (r)	 | Leer o copiar contenido | Listar archivos sin detalle (o detallado con ls -l si se tiene permiso de ejecución) |
+| escribir (write) (w) | Modificar o reescribir contenido | Añadir o eliminar archivos (requiere permiso de escritura en el directorio padre) |
+| ejecutar (execute) (x) | Ejecutar como proceso | Cambiar al directorio (requiere permiso de escritura en el directorio padre) |
+
+### Propietario:
+Si la cuenta es del propietario se usara el primer grupo de permisos y los demás no
+
+`- (rw-) r--r-- 1 sysadmin sysadmin 647 Dec 20  2017 hello.sh`
+
+### Grupo:
+Si es miembro del grupo se aplicara los permisos de grupo 
+
+`- rw- (r--) r-- 1 sysadmin sysadmin 647 Dec 20  2017 hello.sh`
+
+### Otros
+
+Si no pertenece a los 2 anteriores se aplicara el tercer permiso
+`- rw- r-- (r--) 1 sysadmin sysadmin 647 Dec 20  2017 hello.sh`
+
+## Cambiar los permisos de los archivos:
+Sólo el usuario raíz o el usuario propietario del archivo puede cambiar los permisos de un archivo o directorio.
+
+### método simbólico
+El método simbólico es útil para cambiar un conjunto de permisos a la misma vez
+Sintaxis: 
