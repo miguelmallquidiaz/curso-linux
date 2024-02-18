@@ -517,7 +517,7 @@ sudo apt-get install [package]
 - Actualizar el cache primero
 apt-get update
 - Actualizar todos los paquetes y su dependencias
-sudo apt-get update
+apt-get upgrade
 
 - Eliminar un paquete
 apt-get remove [package]
