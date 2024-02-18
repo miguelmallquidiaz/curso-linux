@@ -481,3 +481,65 @@ Este mensaje aparecerá en las terminales de todos los usuarios. Por ejemplo:
 
 `root@localhost:~# shutdown +1 "Goodbye World!"`
 
+## Configuración de red:
+
+- Mostrar la información de una red
+Sintaxis: fconfig [OPCIONES]
+
+ ## Visualización de procesos:
+
+ - Detectar cualquier proceso
+`ps [OPCIONES]`
+
+- PID: El identificador para el proceso (process identifier), el cual es único para cada proceso. Esta información es útil cuando necesitamos controlar los procesos según su número identificador (ID).
+
+- TTY: El nombre de la terminal en la que está funcionando el proceso. Esta información es útil para distinguir entre diferentes procesos que tienen el mismo nombre.
+
+- TIME: La cantidad total de tiempo de procesado que utiliza un proceso determinado. Normalmente, los usuarios normales no utilizan esta información.
+
+- CMD: El comando que inició el proceso.
+
+- La opción -e muestra todos estos procesos:
+
+`ps -e`
+
+- Muestra opción más detallada:
+`ps -ef`
+
+## Administración de paquetes
+
+- Actualizar la lista de paquetes antes de instalar es recomendable
+sudo apt-get update
+
+- Para instalar algún paquete
+sudo apt-get install [package]
+
+- Actualizar el cache primero
+apt-get update
+- Actualizar todos los paquetes y su dependencias
+sudo apt-get update
+
+- Eliminar un paquete
+apt-get remove [package]
+- Purgar un paquete completo del sistema
+apt-get purge [package]
+
+## Actualización de contraseñas de usuario
+
+passwd [OPCIONES] [USUARIO]
+
+- Información de la contraseña, 
+
+passwd -S sysadmin
+
+## Redirección
+
+- echo ha reemplazado el contenido original del archivo. Esto se debe a que el carácter > sobrescribe cualquier contenido de un archivo existente. Para añadir contenido a un archivo, en lugar de sobrescribir, utilice el símbolo “mayor que” dos veces >>:
+
+```
+sysadmin@localhost:~/Documents$ echo "This food is good." >> newfile1.txt
+sysadmin@localhost:~/Documents$ cat newfile1.txt              
+I like food.                                                      
+This food is good. 
+```
+
